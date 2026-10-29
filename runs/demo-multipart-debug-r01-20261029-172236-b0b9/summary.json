@@ -1,0 +1,28 @@
+{
+  "run_id": "demo-multipart-debug-r01-20261029-172236-b0b9",
+  "task_id": "demo-multipart-debug",
+  "repeat_index": 1,
+  "model": {
+    "adapter": "mock",
+    "model_name": "mock-1"
+  },
+  "strategy": "V1",
+  "prompt_version": "prompt-v0.1",
+  "program_version": "0.1.0+c053efa",
+  "finish_reason": "completed",
+  "finish_reason_zh": "模型输出最终报告",
+  "totals": {
+    "elapsed_sec": 0.0,
+    "model_requests": 2,
+    "model_requests_max": 12,
+    "retrieve_calls": 1,
+    "retrieve_calls_max": 20,
+    "code_chars": 1097,
+    "code_chars_max": 40000,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "usage_reported": false
+  },
+  "report_file": "E:\\The useful file\\ANHeng project\\code\\runs\\demo-multipart-debug-r01-20261029-172236-b0b9\\report.md",
+  "events_file": "E:\\The useful file\\ANHeng project\\code\\runs\\demo-multipart-debug-r01-20261029-172236-b0b9\\events.jsonl"
+}
