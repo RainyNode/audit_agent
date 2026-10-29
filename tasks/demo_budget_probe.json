@@ -1,0 +1,17 @@
+{
+  "task_id": "demo-budget-probe",
+  "repo_path": "../sample_repo",
+  "scope": "检查表单解析路径的资源使用问题（与 demo-multipart-debug 相同的演示源码）。",
+  "strategy": "V1",
+  "budget": {
+    "time_minutes": 2,
+    "model_requests": 1,
+    "retrieve_calls": 3,
+    "code_chars": 8000
+  },
+  "model": {
+    "adapter": "mock"
+  },
+  "repeat_index": 1,
+  "notes": "预算收尾路径演示：模型请求次数只有 1 次，耗尽后应按 budget_model_requests 收尾且无最终报告。可随时删除。"
+}

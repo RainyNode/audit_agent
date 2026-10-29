@@ -1,0 +1,28 @@
+{
+  "run_id": "demo-budget-probe-r01-20261029-165520-3173",
+  "task_id": "demo-budget-probe",
+  "repeat_index": 1,
+  "model": {
+    "adapter": "mock",
+    "model_name": "mock-1"
+  },
+  "strategy": "V1",
+  "prompt_version": "prompt-v0.1",
+  "program_version": "0.1.0",
+  "finish_reason": "budget_model_requests",
+  "finish_reason_zh": "模型请求次数",
+  "totals": {
+    "elapsed_sec": 0.0,
+    "model_requests": 1,
+    "model_requests_max": 1,
+    "retrieve_calls": 1,
+    "retrieve_calls_max": 3,
+    "code_chars": 1097,
+    "code_chars_max": 8000,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "usage_reported": false
+  },
+  "report_file": null,
+  "events_file": "E:\\The useful file\\ANHeng project\\code\\runs\\demo-budget-probe-r01-20261029-165520-3173\\events.jsonl"
+}
