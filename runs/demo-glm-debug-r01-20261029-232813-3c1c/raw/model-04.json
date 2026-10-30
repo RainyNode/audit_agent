@@ -1,0 +1,65 @@
+{
+  "id": "chatcmpl-eef70a55-fad6-9ee0-be7f-d4cf66c1e2ea",
+  "choices": [
+    {
+      "finish_reason": "tool_calls",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "需要补全 `_header_name` 剩余部分，并确认 `limits` 模块函数的全部调用点。",
+        "refusal": null,
+        "role": "assistant",
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": [
+          {
+            "id": "call_552398abd5014b64a9738e72",
+            "function": {
+              "arguments": "{\"query\": \"content-disposition filename token\", \"max_chars\": 2500}",
+              "name": "retrieve_code"
+            },
+            "type": "function",
+            "index": 0
+          },
+          {
+            "id": "call_b4417322030c4694ba51d1e5",
+            "function": {
+              "arguments": "{\"query\": \"within_count_limit import limits\", \"max_chars\": 2500}",
+              "name": "retrieve_code"
+            },
+            "type": "function",
+            "index": 1
+          }
+        ],
+        "reasoning_content": "I need to see the rest of `_header_name` (lines 42-49) to complete the picture. Let me also check if there's any other place where `max_body_bytes` or `within_count_limit` is called — the earlier search for \"max_body_bytes\" only found 1 hit in limits.py (the definition). Let me do one more search to confirm usage of limits functions and see the rest of _header_name."
+      }
+    }
+  ],
+  "created": 1793287707,
+  "model": "glm-5.3",
+  "object": "chat.completion",
+  "metadata": null,
+  "moderation": null,
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "completion_tokens": 161,
+    "prompt_tokens": 2778,
+    "total_tokens": 2939,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 90,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 1792,
+      "image_tokens": null,
+      "text_tokens": null
+    }
+  }
+}

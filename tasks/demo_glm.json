@@ -1,0 +1,21 @@
+{
+  "task_id": "demo-glm-debug",
+  "repo_path": "../sample_repo",
+  "scope": "检查给定 Python 源码中表单与文件上传处理路径的资源使用问题：解析过程是否对输入数量设置限制、限制是否有效。对每项发现给出文件、行号与理由；证据不足请说明。",
+  "strategy": "V1",
+  "budget": {
+    "time_minutes": 10,
+    "model_requests": 12,
+    "retrieve_calls": 20,
+    "code_chars": 40000
+  },
+  "model": {
+  "adapter": "glm",
+  "model_name": "glm-5.3",
+  "base_url": "https://maas.qianwenaiapi.com/compatible-mode/v1",
+  "api_key_env": "QWENCLOUD_API_KEY",
+  "temperature": 0.3
+  },
+  "repeat_index": 1,
+  "notes": "GLM 真实接口联调：默认使用接入计划中的候选型号 glm-5.3，调用前确认账号权限。sample_repo 为自建演示代码，不是正式评价案例。"
+}

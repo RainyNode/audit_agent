@@ -1,0 +1,65 @@
+{
+  "id": "chatcmpl-b0d5abbb-a8b0-9e89-afb3-69ad832fb157",
+  "choices": [
+    {
+      "finish_reason": "tool_calls",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "`max_body_bytes` 似乎只在 limits.py 中定义。我需要确认它是否在任何调用点被使用，以及 `request.body` 读取前是否有大小检查，同时查看 `_header_name` 的实现。",
+        "refusal": null,
+        "role": "assistant",
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": [
+          {
+            "id": "call_c4a1dfe804414d79a829898e",
+            "function": {
+              "arguments": "{\"query\": \"request.body content-length\", \"max_chars\": 3000}",
+              "name": "retrieve_code"
+            },
+            "type": "function",
+            "index": 0
+          },
+          {
+            "id": "call_e4a4889cdb574accbc6c2456",
+            "function": {
+              "arguments": "{\"query\": \"_header_name\", \"max_chars\": 2000}",
+              "name": "retrieve_code"
+            },
+            "type": "function",
+            "index": 1
+          }
+        ],
+        "reasoning_content": "Now I have a good picture. Let me check:\n1. `max_body_bytes` is defined in limits.py but is it used anywhere? The search for \"max_body_bytes\" only hit 1 file (limits.py itself, 1 place). So it's defined but never called. Let me verify by searching for \"request.body\" or \"body\" usage to see if there's any size check before parsing.\n\n2. `handle_login` calls `parse_form(request.body)` with no limit at all.\n\n3. `handle_upload` checks `within_count_limit(len(files), limit=50)` — but this happens AFTER `parse_form(request.body)` has already parsed the entire body. So the limit is applied after full parsing, meaning resource exhaustion during parsing is not prevented.\n\n4. `split_parts` uses `body.split(boundary)` — this creates a list of all segments in memory. No limit on number of parts during parsing.\n\n5. `read_part` reads the entire payload into memory — no size limit on individual file.\n\n6. `FileItem.write_to` writes payload to disk — no size limit, and filename is used directly in `os.path.join(directory, self.filename)` — potential path traversal, but that's not the focus of this audit (resource usage). Actually the task is about resource usage issues: \"解析过程是否对输入数量设置限制、限制是否有效\" (whether the parsing process sets limits on input quantity, and whether the limits are effective).\n\nLet me also check:\n- Is there any check on `request.body` size before parsing? Let me search for \"request.body\" and \"Content-Length\" to see.\n- Also check `_header_name` implementation.\n\nLet me search for these."
+      }
+    }
+  ],
+  "created": 1793287700,
+  "model": "glm-5.3",
+  "object": "chat.completion",
+  "metadata": null,
+  "moderation": null,
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "completion_tokens": 438,
+    "prompt_tokens": 2013,
+    "total_tokens": 2451,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 352,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 1280,
+      "image_tokens": null,
+      "text_tokens": null
+    }
+  }
+}

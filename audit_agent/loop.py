@@ -228,7 +228,7 @@ class AgentLoop:
 
     @staticmethod
     def _assistant_tool_message(resp) -> dict:
-        return {
+        message = {
             "role": "assistant",
             "content": resp.text or None,
             "tool_calls": [
@@ -240,3 +240,6 @@ class AgentLoop:
                 for t in resp.tool_calls
             ],
         }
+        if resp.reasoning_content:
+            message["reasoning_content"] = resp.reasoning_content
+        return message
