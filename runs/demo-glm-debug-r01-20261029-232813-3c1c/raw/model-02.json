@@ -1,0 +1,65 @@
+{
+  "id": "chatcmpl-65cf0516-63b6-927a-b9b9-a80e1e154869",
+  "choices": [
+    {
+      "finish_reason": "tool_calls",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "已找到入口 `handle_upload` 与解析函数 `parse_form`。现在需要深入查看 `split_parts`、`read_part`、`_find_boundary` 的完整实现，以及 `max_body_bytes` 是否被实际使用。",
+        "refusal": null,
+        "role": "assistant",
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": [
+          {
+            "id": "call_130d055c10814bc0bae2968b",
+            "function": {
+              "arguments": "{\"query\": \"split_parts read_part boundary\", \"max_chars\": 5000}",
+              "name": "retrieve_code"
+            },
+            "type": "function",
+            "index": 0
+          },
+          {
+            "id": "call_dab77d9bcb5c4c7493522ccc",
+            "function": {
+              "arguments": "{\"query\": \"max_body_bytes\", \"max_chars\": 3000}",
+              "name": "retrieve_code"
+            },
+            "type": "function",
+            "index": 1
+          }
+        ],
+        "reasoning_content": "I've found the main entry points. Now I need to look deeper into:\n1. `parse_form` in multipart.py - the full parsing logic, especially `split_parts`, `read_part`, `_find_boundary`\n2. `limits.py` - `max_body_bytes` function\n3. Whether `max_body_bytes` is actually used anywhere\n\nLet me search for more details on these functions."
+      }
+    }
+  ],
+  "created": 1793287697,
+  "model": "glm-5.3",
+  "object": "chat.completion",
+  "metadata": null,
+  "moderation": null,
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "completion_tokens": 173,
+    "prompt_tokens": 1405,
+    "total_tokens": 1578,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 81,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 256,
+      "image_tokens": null,
+      "text_tokens": null
+    }
+  }
+}

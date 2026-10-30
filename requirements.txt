@@ -1,2 +1,3 @@
+# -*- coding: utf-8 -*-
 # 仅调用真实模型（GLM / DeepSeek）时需要；Mock 运行无需安装
 openai>=1.40

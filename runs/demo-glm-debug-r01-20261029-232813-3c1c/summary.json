@@ -1,0 +1,28 @@
+{
+  "run_id": "demo-glm-debug-r01-20261029-232813-3c1c",
+  "task_id": "demo-glm-debug",
+  "repeat_index": 1,
+  "model": {
+    "adapter": "glm",
+    "model_name": "glm-5.3"
+  },
+  "strategy": "V1",
+  "prompt_version": "prompt-v0.1",
+  "program_version": "0.1.0+2370ae2",
+  "finish_reason": "completed",
+  "finish_reason_zh": "模型输出最终报告",
+  "totals": {
+    "elapsed_sec": 92.9,
+    "model_requests": 6,
+    "model_requests_max": 12,
+    "retrieve_calls": 9,
+    "retrieve_calls_max": 20,
+    "code_chars": 9903,
+    "code_chars_max": 40000,
+    "prompt_tokens": 16112,
+    "completion_tokens": 6005,
+    "usage_reported": true
+  },
+  "report_file": "D:\\Aawenjian\\AProject\\anheng-topic\\audit_agent\\runs\\demo-glm-debug-r01-20261029-232813-3c1c\\report.md",
+  "events_file": "D:\\Aawenjian\\AProject\\anheng-topic\\audit_agent\\runs\\demo-glm-debug-r01-20261029-232813-3c1c\\events.jsonl"
+}

@@ -50,4 +50,5 @@ class OpenAICompatAdapter(BaseModelAdapter):
             completion_tokens=getattr(usage, "completion_tokens", 0) or 0,
             usage_reported=usage is not None,
             raw=resp.model_dump() if hasattr(resp, "model_dump") else None,
+            reasoning_content=getattr(message, "reasoning_content", None) or "",
         )

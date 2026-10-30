@@ -35,6 +35,7 @@ class LLMResponse:
     completion_tokens: int = 0
     usage_reported: bool = False
     raw: Optional[dict] = None
+    reasoning_content: str = ""  # 工具调用续接时原样回传供应商返回的思考内容
 
 
 class BaseModelAdapter(abc.ABC):

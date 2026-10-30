@@ -1,0 +1,65 @@
+{
+  "id": "chatcmpl-ead3e16d-783c-9a30-b7ec-9cded708e8d8",
+  "choices": [
+    {
+      "finish_reason": "tool_calls",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "我将开始检索表单与文件上传处理相关的源码。先并行检索几个关键路径。",
+        "refusal": null,
+        "role": "assistant",
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": [
+          {
+            "id": "call_888b60fc4ef64e7781638df2",
+            "function": {
+              "arguments": "{\"query\": \"form multipart limit\", \"max_chars\": 4000}",
+              "name": "retrieve_code"
+            },
+            "type": "function",
+            "index": 0
+          },
+          {
+            "id": "call_fa144d0324ea49b597b43227",
+            "function": {
+              "arguments": "{\"query\": \"upload file size\", \"max_chars\": 4000}",
+              "name": "retrieve_code"
+            },
+            "type": "function",
+            "index": 1
+          }
+        ],
+        "reasoning_content": "Let me start by searching for form and file upload handling code in the Python source. I'll look for keywords like \"form\", \"multipart\", \"upload\", \"limit\", \"parse\", etc.\n\nLet me plan my searches:\n1. \"form multipart limit\" - to find form parsing with limits\n2. \"upload file size\" - file upload handling\n3. \"parse_form\" or similar\n4. \"MAX\" settings\n\nLet me do a few searches in parallel since they're independent."
+      }
+    }
+  ],
+  "created": 1793287694,
+  "model": "glm-5.3",
+  "object": "chat.completion",
+  "metadata": null,
+  "moderation": null,
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "completion_tokens": 163,
+    "prompt_tokens": 456,
+    "total_tokens": 619,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 102,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    }
+  }
+}
